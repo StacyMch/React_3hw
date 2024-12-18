@@ -4,7 +4,7 @@ import data from './data.json';
 
 export const App = () => {
 	// Можно задать 2 состояния — steps и activeIndex
-	const [steps, setStep] = useState(data);
+	//const [steps, setStep] = useState(data);
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	// И определить 3 обработчика: Клик назад, Клик вперед, Начать сначала
@@ -17,7 +17,7 @@ export const App = () => {
 	// И 2 переменных-флага — находимся ли мы на первом шаге, и находимся ли на последнем
 	let isFirstStep = (index) => index === 0;
 
-	let isLastStep = (index) => index === steps.length - 1;
+	let isLastStep = (index) => index === data.length - 1;
 
 	return (
 		<div className={styles.container}>
@@ -26,11 +26,11 @@ export const App = () => {
 				<div className={styles.steps}>
 					<div className={styles['steps-content']}>
 						{/* Для получения активного контента использйте steps и activeIndex */}
-						{steps[activeIndex]['content']}
+						{data[activeIndex]['content']}
 					</div>
 					<ul className={styles['steps-list']}>
 						{/* Выводите <li> с помощью массива steps и метода map(), подставляя в разметку нужные значения и классы */}
-						{steps.map(({ id, title }, index) => (
+						{data.map(({ id, title }, index) => (
 							<li
 								key={id}
 								className={
